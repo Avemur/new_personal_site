@@ -86,9 +86,9 @@ export function Projects() {
                 <CardDescription className="text-base font-mono text-gray-400">{project.tech}</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {project.highlights.map((highlight, i) => (
-                    <li key={i} className="text-base text-gray-400 leading-relaxed flex gap-3">
+                    <li key={i} className="text-base text-gray-400 leading-relaxed flex gap-2">
                       <span className="text-gray-500 mt-1 flex-shrink-0">•</span>
                       <span>{highlight}</span>
                     </li>
