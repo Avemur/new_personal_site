@@ -83,9 +83,6 @@ export function AnimatedBackground() {
     function step() {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // subtle blur for a softer aesthetic
-      ctx.filter = "blur(0.7px)"
-
       // Update
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
@@ -128,7 +125,7 @@ export function AnimatedBackground() {
           const d = Math.hypot(dx, dy)
           if (d < maxLinkDist) {
             const alpha = 0.25 * (1 - d / maxLinkDist)
-            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`
+            ctx.strokeStyle = `rgba(120, 120, 150, ${alpha})`
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(b.x, b.y)
@@ -137,19 +134,40 @@ export function AnimatedBackground() {
         }
       }
 
-      // Removed mouse highlight/aura and direct cursor link lines (interaction kept subtle via attraction only)
+      // Mouse links and highlight
+      if (mouseActive) {
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i]
+          const dx = p.x - mouseX
+          const dy = p.y - mouseY
+          const d = Math.hypot(dx, dy)
+          if (d < mouseLinkDist) {
+            const alpha = 0.35 * (1 - d / mouseLinkDist)
+            ctx.strokeStyle = `rgba(160, 160, 200, ${alpha})`
+            ctx.beginPath()
+            ctx.moveTo(p.x, p.y)
+            ctx.lineTo(mouseX, mouseY)
+            ctx.stroke()
+          }
+        }
+        // soft mouse aura
+        const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 60)
+        gradient.addColorStop(0, "rgba(180, 180, 240, 0.12)")
+        gradient.addColorStop(1, "rgba(180, 180, 240, 0)")
+        ctx.fillStyle = gradient
+        ctx.beginPath()
+        ctx.arc(mouseX, mouseY, 60, 0, Math.PI * 2)
+        ctx.fill()
+      }
 
       // Draw particles
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
-        ctx.fillStyle = "rgba(255, 255, 255, 0.35)"
+        ctx.fillStyle = "rgba(150, 150, 190, 0.35)"
         ctx.beginPath()
         ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2)
         ctx.fill()
       }
-
-      // reset filter to avoid affecting future clears in some browsers
-      ctx.filter = "none"
 
       rafId = requestAnimationFrame(step)
     }
