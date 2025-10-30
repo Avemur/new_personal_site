@@ -45,7 +45,7 @@ export function AnimatedBackground() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      time += 1
+      time += 1.5
 
       dots.forEach((dot) => {
         dot.y = dot.baseY + Math.sin(time * dot.speed + dot.x * 0.015) * dot.amplitude
