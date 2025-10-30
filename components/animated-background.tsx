@@ -125,7 +125,7 @@ export function AnimatedBackground() {
           const d = Math.hypot(dx, dy)
           if (d < maxLinkDist) {
             const alpha = 0.25 * (1 - d / maxLinkDist)
-            ctx.strokeStyle = `rgba(120, 120, 150, ${alpha})`
+            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(b.x, b.y)
@@ -143,7 +143,7 @@ export function AnimatedBackground() {
           const d = Math.hypot(dx, dy)
           if (d < mouseLinkDist) {
             const alpha = 0.35 * (1 - d / mouseLinkDist)
-            ctx.strokeStyle = `rgba(160, 160, 200, ${alpha})`
+            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`
             ctx.beginPath()
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(mouseX, mouseY)
@@ -155,7 +155,7 @@ export function AnimatedBackground() {
       // Draw particles
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
-        ctx.fillStyle = "rgba(150, 150, 190, 0.35)"
+        ctx.fillStyle = "rgba(255, 255, 255, 0.35)"
         ctx.beginPath()
         ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2)
         ctx.fill()
