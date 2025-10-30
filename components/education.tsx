@@ -16,18 +16,20 @@ export function Education() {
               </div>
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
-                  <CardTitle className="text-3xl text-white">University of Michigan</CardTitle>
+                  <div>
+                    <CardTitle className="text-3xl text-white">University of Michigan</CardTitle>
+                    <CardDescription className="text-lg text-gray-300">
+                      B.S.E. in Computer Science, Minor in Mathematics
+                    </CardDescription>
+                    <p className="text-base text-gray-400">
+                      <span className="font-medium">GPA:</span> 3.87
+                    </p>
+                  </div>
                   <div className="flex flex-col items-start md:items-end gap-1">
                     <span className="text-base text-gray-400">Expected May 2027</span>
                     <span className="text-base text-gray-400">Ann Arbor, MI</span>
                   </div>
                 </div>
-                <CardDescription className="text-lg text-gray-300">
-                  B.S.E. in Computer Science, Minor in Mathematics
-                </CardDescription>
-                <p className="text-base text-gray-400 mt-2">
-                  <span className="font-medium">GPA:</span> 3.87
-                </p>
               </div>
             </div>
           </CardHeader>
