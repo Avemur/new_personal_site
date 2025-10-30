@@ -150,14 +150,6 @@ export function AnimatedBackground() {
             ctx.stroke()
           }
         }
-        // soft mouse aura
-        const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 60)
-        gradient.addColorStop(0, "rgba(180, 180, 240, 0.12)")
-        gradient.addColorStop(1, "rgba(180, 180, 240, 0)")
-        ctx.fillStyle = gradient
-        ctx.beginPath()
-        ctx.arc(mouseX, mouseY, 60, 0, Math.PI * 2)
-        ctx.fill()
       }
 
       // Draw particles
