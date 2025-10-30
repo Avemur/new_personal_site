@@ -12,6 +12,10 @@ export function AnimatedBackground() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
+    // Track mouse position relative to the canvas for interactive effects
+    let mouseX = -10000
+    let mouseY = -10000
+
     const setCanvasSize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
@@ -19,6 +23,20 @@ export function AnimatedBackground() {
 
     setCanvasSize()
     window.addEventListener("resize", setCanvasSize)
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      mouseX = e.clientX - rect.left
+      mouseY = e.clientY - rect.top
+    }
+
+    const handleMouseLeave = () => {
+      mouseX = -10000
+      mouseY = -10000
+    }
+
+    canvas.addEventListener("mousemove", handleMouseMove)
+    canvas.addEventListener("mouseleave", handleMouseLeave)
 
     const dots: { x: number; y: number; baseY: number; speed: number; amplitude: number; size: number }[] = []
     const spacing = 40
@@ -47,12 +65,29 @@ export function AnimatedBackground() {
 
       time += 1.5
 
+      const influenceRadius = 120 // pixels
+      const maxPush = 14 // pixels
+
       dots.forEach((dot) => {
+        // baseline wave motion on Y
         dot.y = dot.baseY + Math.sin(time * dot.speed + dot.x * 0.015) * dot.amplitude
 
-        ctx.fillStyle = "rgba(100, 100, 120, 0.2)"
+        // compute interactive displacement
+        let renderX = dot.x
+        let renderY = dot.y
+        const dx = renderX - mouseX
+        const dy = renderY - mouseY
+        const dist = Math.hypot(dx, dy)
+        if (dist > 0 && dist < influenceRadius) {
+          const strength = (influenceRadius - dist) / influenceRadius
+          const push = maxPush * strength
+          renderX += (dx / dist) * push
+          renderY += (dy / dist) * push
+        }
+
+        ctx.fillStyle = "rgba(100, 100, 120, 0.25)"
         ctx.beginPath()
-        ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2)
+        ctx.arc(renderX, renderY, dot.size, 0, Math.PI * 2)
         ctx.fill()
       })
 
@@ -63,6 +98,8 @@ export function AnimatedBackground() {
 
     return () => {
       window.removeEventListener("resize", setCanvasSize)
+      canvas.removeEventListener("mousemove", handleMouseMove)
+      canvas.removeEventListener("mouseleave", handleMouseLeave)
     }
   }, [])
 
