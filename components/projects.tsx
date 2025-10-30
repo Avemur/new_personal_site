@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { AnimatedBackground } from "./animated-background"
+ 
 import { Github, Globe } from "lucide-react"
 
 const projects = [
@@ -46,7 +46,6 @@ const projects = [
 export function Projects() {
   return (
     <section id="projects" className="relative px-6 py-20">
-      <AnimatedBackground />
       <div className="relative z-10 max-w-5xl mx-auto space-y-10">
         <h2 className="text-5xl md:text-6xl font-light tracking-tight text-white">Projects</h2>
 

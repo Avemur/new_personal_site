@@ -1,4 +1,4 @@
-import { AnimatedBackground } from "./animated-background"
+ 
 
 const skillCategories = [
   {
@@ -70,7 +70,6 @@ const skillCategories = [
 export function Skills() {
   return (
     <section id="skills" className="relative px-6 py-20">
-      <AnimatedBackground />
       <div className="relative z-10 max-w-5xl mx-auto space-y-10">
         <h2 className="text-5xl md:text-6xl font-light tracking-tight text-white">Technical Skills</h2>
 
