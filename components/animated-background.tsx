@@ -15,10 +15,11 @@ export function AnimatedBackground() {
     // DPR scaling for crisp lines
     const setCanvasSize = () => {
       const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1))
-      const width = window.innerWidth
-      const height = window.innerHeight
-      canvas.style.width = width + "px"
-      canvas.style.height = height + "px"
+      // Fill parent bounds to avoid viewport-width overflow
+      const rect = canvas.getBoundingClientRect()
+      const width = Math.max(1, Math.floor(rect.width))
+      const height = Math.max(1, Math.floor(rect.height))
+      // size via CSS is controlled by className; avoid forcing viewport width
       canvas.width = Math.floor(width * dpr)
       canvas.height = Math.floor(height * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
@@ -56,15 +57,18 @@ export function AnimatedBackground() {
     const particles: Particle[] = []
     const initParticles = () => {
       particles.length = 0
-      const area = window.innerWidth * window.innerHeight
+      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1))
+      const viewW = canvas.width / dpr
+      const viewH = canvas.height / dpr
+      const area = viewW * viewH
       const density = 0.00012 // particles per px
       const count = Math.max(60, Math.min(180, Math.floor(area * density)))
       for (let i = 0; i < count; i++) {
         const speed = 0.2 + Math.random() * 0.6
         const angle = Math.random() * Math.PI * 2
         particles.push({
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
+          x: Math.random() * viewW,
+          y: Math.random() * viewH,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
         })
@@ -84,6 +88,9 @@ export function AnimatedBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       // Update
+      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1))
+      const viewW = canvas.width / dpr
+      const viewH = canvas.height / dpr
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
         if (mouseActive) {
@@ -107,11 +114,11 @@ export function AnimatedBackground() {
         p.x += p.vx
         p.y += p.vy
 
-        // wrap-around edges
-        if (p.x < -10) p.x = window.innerWidth + 10
-        else if (p.x > window.innerWidth + 10) p.x = -10
-        if (p.y < -10) p.y = window.innerHeight + 10
-        else if (p.y > window.innerHeight + 10) p.y = -10
+        // wrap-around edges based on canvas view size
+        if (p.x < -10) p.x = viewW + 10
+        else if (p.x > viewW + 10) p.x = -10
+        if (p.y < -10) p.y = viewH + 10
+        else if (p.y > viewH + 10) p.y = -10
       }
 
       // Links
