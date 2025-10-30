@@ -5,6 +5,7 @@ const experiences = [
   {
     company: "Strata AI",
     logo: "SA",
+    image: "/strata.jpeg",
     role: "Software Development Intern",
     location: "Ann Arbor, MI",
     period: "May 2025 - Aug 2025",
@@ -17,6 +18,7 @@ const experiences = [
   {
     company: "SLV Realty",
     logo: "SR",
+    image: "/slv_realty.jpg",
     role: "Software Engineering Intern",
     location: "Greenville, SC",
     period: "May 2024 - Aug 2024",
@@ -29,6 +31,7 @@ const experiences = [
   {
     company: "Clemson University",
     logo: "CU",
+    image: "/clemson.jpeg",
     role: "Research Assistant",
     location: "Clemson, SC",
     period: "Jun 2023 – Aug 2023",
@@ -54,8 +57,17 @@ export function Experience() {
             >
               <CardHeader>
                 <div className="flex items-start gap-5">
-                  <div className="w-20 h-20 rounded-lg bg-[#2a2a30] border border-gray-700 flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl font-bold text-gray-400">{exp.logo}</span>
+                  <div className="w-20 h-20 rounded-lg bg-[#2a2a30] border border-gray-700 flex items-center justify-center overflow-hidden flex-shrink-0">
+                    {exp.image ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={exp.image}
+                        alt={`${exp.company} logo`}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="text-2xl font-bold text-gray-400">{exp.logo}</span>
+                    )}
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
