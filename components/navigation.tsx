@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, FileText } from "lucide-react"
 
 const sections = [
   { id: "home", label: "Home" },
@@ -82,6 +82,15 @@ export function Navigation() {
             aria-label="GitHub"
           >
             <Github className="w-5 h-5" />
+          </a>
+          <a
+            href="https://drive.google.com/file/d/138lsGhW9lJ4Uft5WH6nSSsGLcHEgjpHW/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors"
+            aria-label="Resume"
+          >
+            <FileText className="w-5 h-5" />
           </a>
         </div>
       </div>
