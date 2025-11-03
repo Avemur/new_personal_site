@@ -66,7 +66,7 @@ export function Navigation() {
             <Mail className="w-5 h-5" />
           </a>
           <a
-            href="https://linkedin.com/in/avemur"
+            href="https://www.linkedin.com/in/avemur/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"
@@ -75,7 +75,7 @@ export function Navigation() {
             <Linkedin className="w-5 h-5" />
           </a>
           <a
-            href="https://avemur.github.io"
+            href="https://github.com/Avemur"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"

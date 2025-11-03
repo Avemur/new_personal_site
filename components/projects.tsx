@@ -7,8 +7,8 @@ const projects = [
     name: "QuickDrop",
     tech: "C/C++, Crow, libsodium, ZSTD, TCP/UDP",
     period: "Mar 2025 – Jul 2025",
-    website: "https://quickdrop.example.com",
-    github: "https://github.com/avemur/quickdrop",
+    website: "https://github.com/Avemur/QuickDrop",
+    github: "https://github.com/Avemur/QuickDrop",
     highlights: [
       "Developed a cross-platform peer-to-peer file transfer system supporting 100+ concurrent peers with <5 ms latency through UDP-broadcast discovery, TCP handshake optimizations, and multi-threaded accept loops",
       "Optimized data transfer, achieving 150 MB/s throughput with 60% average ZSTD compression per I/O chunk",
@@ -20,8 +20,8 @@ const projects = [
     name: "Optimize AI",
     tech: "Python, Flask, Next.js",
     period: "Feb 2025 – Mar 2025",
-    website: "https://optimizeai.example.com",
-    github: "https://github.com/avemur/optimize-ai",
+    website: "https://devpost.com/software/optimizeai",
+    github: "https://github.com/FaizHLI/gardenofsalvation",
     highlights: [
       "Reduced the compute cost of LLM calls by up to 30% through developing an algorithm to simplify complex queries with a multi-stage NLP-based query parser leveraging spaCy dependent parses and semantic role labeling",
       "Developed an energy-benchmarking dashboard to visualize lifetime and session-level savings in various units",
@@ -32,8 +32,8 @@ const projects = [
     name: "GestureMap",
     tech: "Python, MediaPipe, OpenCV, Tkinter",
     period: "Sep 2024 – Dec 2024",
-    website: "https://gesturemap.example.com",
-    github: "https://github.com/avemur/gesturemap",
+    website: "https://github.com/Avemur/GestureMap-OpenASL",
+    github: "https://github.com/Avemur/GestureMap-OpenASL",
     highlights: [
       "Enabled control of 20+ desktop actions with hand gestures with 95% accuracy through CV gesture classification",
       "Integrated ASL-based text input through utilizing MediaPipe Hands tracking for <50 ms frame translation latency",
