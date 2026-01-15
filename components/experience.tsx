@@ -6,13 +6,13 @@ const experiences = [
     company: "Strata AI",
     logo: "SA",
     image: "/strata.jpeg",
-    role: "Software Development Intern",
+    role: "Software Engineering Intern",
     location: "Ann Arbor, MI",
     period: "May 2025 - Aug 2025",
     highlights: [
-      "Implemented 5+ microservices for an Electron-based CRM analytics platform to increase small business customer retention; attained <50 ms API latency with 99.99% uptime by leveraging Apache Kafka and Amazon EventBridge",
-      "Accomplished real-time customer segmentation and churn prediction with up to a 20% increase in retention, utilizing ONNX Runtime in Python for mixed-precision inference and containerized auto scaling with AWS Fargate",
-      "Ensured user privacy with 100% end-to-end encryption by implementing TLS 1.3 and server-side AES-256",
+      "Developed a data filtration module using Python classification models with ONNX Runtime on AWS Fargate to remove low-relevance signals from 200k+ events, enabling users to toggle between raw and sanitized data views",
+      "Enabled streaming analysis of 15+ distinct event types by deploying a parallel Kafka ingestion pipeline to fork incoming streams without modifying the primary dataset, ensuring data integrity",
+      "Reduced P99 API latency for expensive data queries by 40% leveraging a Redis cache of precomputed results",
     ],
   },
   {
@@ -23,9 +23,9 @@ const experiences = [
     location: "Greenville, SC",
     period: "May 2024 - Aug 2024",
     highlights: [
-      "Developed a personalized home-listing notification pipeline used by 200+ buyers with over 50% 2-week retention, implementing custom filters including price, location, and school-zone, utilizing Flask and AWS Lambda",
-      "Built a buyer-agent matching system, identifying the optimal agent for each listing by scoring agents on listing alignment and buyer preference with a LambdaMART model, and automatically connecting parties after a match",
-      "Automated the import of 1,200+ listings into an internal dashboard by deploying a Python ETL tool",
+      "Engineered a buyer-agent allocation system using a weighted multi-factor scoring algorithm across 10+ features including location, price range, and transaction history, automatically matching buyers to optimal agents",
+      "Built a serverless notification pipeline powered by Flask and AWS Lambda to deliver personalized property alerts to 200+ active buyers, filtering listings by price, location, and school zone",
+      "Automated the daily ingestion of 1,200+ property listings by designing an ETL pipeline with Python and Pandas",
     ],
   },
   {

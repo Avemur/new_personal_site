@@ -10,10 +10,10 @@ const projects = [
     website: "https://github.com/Avemur/QuickDrop",
     github: "https://github.com/Avemur/QuickDrop",
     highlights: [
-      "Developed a cross-platform peer-to-peer file transfer system supporting 100+ concurrent peers with <5 ms latency through UDP-broadcast discovery, TCP handshake optimizations, and multi-threaded accept loops",
-      "Optimized data transfer, achieving 150 MB/s throughput with 60% average ZSTD compression per I/O chunk",
-      "Validated end-to-end encryption and authentication for 500k+ file chunks, maintaining <0.5 ms decryption latency with concurrent integrity checks, using Diffie-Hellman key exchange and ChaCha20-Poly encryption",
-      "Enabled transfers to resume <100 ms after network interruptions by implementing per-chunk state persistence",
+      "Designed and implemented a cross-platform P2P file transfer system supporting 100+ concurrent peers with <5 ms peer discovery latency, leveraging UDP-broadcast discovery and multi-threaded connection management",
+      "Encrypted 500k+ chunks end-to-end using X25519 and ChaCha20-Poly1305, maintaining <0.5 ms latency",
+      "Achieved 150 MB/s LAN throughput with ZSTD-compressed chunked I/O, reducing payloads by 60%",
+      "Enabled <100 ms transfer recovery after network interruptions through per-chunk state persistence",
     ],
   },
   {
@@ -23,8 +23,8 @@ const projects = [
     website: "https://devpost.com/software/optimizeai",
     github: "https://github.com/FaizHLI/gardenofsalvation",
     highlights: [
-      "Reduced the compute cost of LLM calls by up to 30% through developing an algorithm to simplify complex queries with a multi-stage NLP-based query parser leveraging spaCy dependent parses and semantic role labeling",
-      "Developed an energy-benchmarking dashboard to visualize lifetime and session-level savings in various units",
+      "Reduced the compute cost of LLM calls by up to 30% through developing an algorithm to simplify complex queries with a multi-stage NLP-based query parser leveraging spaCy dependency parses and semantic role labeling",
+      "Designed an energy-benchmarking dashboard to visualize lifetime and session-level savings with various metrics",
       "Implemented a token-based game module to reward calculated energy savings and incentivize user retention",
     ],
   },
@@ -35,8 +35,8 @@ const projects = [
     website: "https://github.com/Avemur/GestureMap-OpenASL",
     github: "https://github.com/Avemur/GestureMap-OpenASL",
     highlights: [
-      "Enabled control of 20+ desktop actions with hand gestures with 95% accuracy through CV gesture classification",
-      "Integrated ASL-based text input through utilizing MediaPipe Hands tracking for <50 ms frame translation latency",
+      "Delivered control of 20+ desktop actions with hand gestures with 90% accuracy through CV gesture classification",
+      "Integrated ASL-based text input through utilizing MediaPipe Hands tracking for <75 ms frame translation latency",
       "Improved text input speed by 35% on average by integrating a seq2seq LSTM autocomplete module",
       "Minimized unknown sign errors for non-standard ASL words by implementing a k-NN–based semantic map",
     ],

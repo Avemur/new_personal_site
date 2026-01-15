@@ -15,7 +15,7 @@ const skillCategories = [
       "Flutter",
       "Dart",
       "SQL",
-      "Matlab",
+      "MATLAB",
     ],
   },
   {
@@ -23,7 +23,7 @@ const skillCategories = [
     skills: [
       "Flask",
       "Django",
-      "React (native)",
+      "React Native",
       "Electron",
       "Node.js",
       "SwiftUI",
@@ -41,6 +41,7 @@ const skillCategories = [
       "Git",
       "Docker",
       "VS Code",
+      "Power BI",
       "Xcode",
       "Heroku",
       "Jenkins",

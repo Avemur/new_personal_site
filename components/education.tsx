@@ -19,10 +19,10 @@ export function Education() {
                   <div>
                     <CardTitle className="text-3xl text-white">University of Michigan</CardTitle>
                     <CardDescription className="text-lg text-gray-300">
-                      B.S.E. in Computer Science, Minor in Mathematics
+                      B.S.E. in Computer Science, Minors in Mathematics & Electrical Engineering
                     </CardDescription>
                     <p className="text-base text-gray-400">
-                      <span className="font-medium">GPA:</span> 3.87
+                      <span className="font-medium">GPA:</span> 3.8
                     </p>
                   </div>
                   <div className="flex flex-col items-start md:items-end gap-1">
@@ -37,8 +37,8 @@ export function Education() {
             <div>
               <h4 className="font-medium mb-2 text-lg text-white">Relevant Coursework</h4>
               <p className="text-base text-gray-400 leading-relaxed">
-                Data Structures and Algorithms, Computer Organization, Object Oriented Programming, Discrete Math,
-                Linear Algebra, Introduction to Probability Theory, Multivariable and Vector Calculus
+                Data Structures and Algorithms, Machine Learning, Web Systems, Computer Organization,
+                Object-Oriented Programming, Discrete Math, Probability Theory, Linear Algebra
               </p>
             </div>
             <div>
